@@ -5,7 +5,7 @@ const app = express();
 const mongoose = require('mongoose');
 
 const stuffRoutes = require('./routes/stuff');
-
+const path = require('path');
 
 
 mongoose.connect('mongodb+srv://laury:Ramses4269@atlascluster.z4m1ux1.mongodb.net/?retryWrites=true&w=majority',
@@ -26,7 +26,8 @@ mongoose.connect('mongodb+srv://laury:Ramses4269@atlascluster.z4m1ux1.mongodb.ne
 app.use((req, res) => {
     res.json({ message: "Votre requête a bien été reçue !" });
 });
-
+app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use('/api/auth', userRoutes);
+
 
 module.exports = app;
