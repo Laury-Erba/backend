@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const stuffRoutes = require('./routes/stuff');
 
 
+
 mongoose.connect('mongodb+srv://laury:Ramses4269@atlascluster.z4m1ux1.mongodb.net/?retryWrites=true&w=majority',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
@@ -13,6 +14,7 @@ mongoose.connect('mongodb+srv://laury:Ramses4269@atlascluster.z4m1ux1.mongodb.ne
   .catch(() => console.log('Connexion à MongoDB échouée !'));
   
   app.use('/api/stuff', stuffRoutes);
+  
   app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
@@ -23,5 +25,7 @@ mongoose.connect('mongodb+srv://laury:Ramses4269@atlascluster.z4m1ux1.mongodb.ne
 app.use((req, res) => {
     res.json({ message: "Votre requête a bien été reçue !" });
 });
+
+
 
 module.exports = app;
