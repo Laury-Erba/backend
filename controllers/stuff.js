@@ -1,4 +1,4 @@
-const Thing = require("../models/Thing");
+const sauce = require("../models/Sauce");
 
 exports.createThing = (req, res, next) => {
     delete req.body._id;
