@@ -1,18 +1,7 @@
-const bcrypt = require('bcrypt'); // package de chiffrement
-const User = require('../models/User'); // modele user
-const jwt = require('jsonwebtoken'); // token generator package
-const emailValidator = require('email-validator');// email validator package
-const passwordValidator = require('password-validator'); // password validator package
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const User = require('../models/User');
 
-const passwordSchema = new passwordValidator();
-
-passwordSchema
-.is().min(8)                                    // Minimum length 8
-.is().max(50)                                  // Maximum length 50
-.has().uppercase()                              // Must have uppercase letters
-.has().lowercase()                              // Must have lowercase letters
-.has().digits()                                // Must have at least 1 digit
-.has().not().symbols();                         // Has no symbols
 
 // inscription du user
 exports.signup = (req, res, next) => { 
