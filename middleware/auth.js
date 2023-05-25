@@ -1,6 +1,8 @@
+//importation du package jsonwebtoken pour fénérer les tokens
 const jwt = require('jsonwebtoken');
-
+// Export des midddleware 
 module.exports = (req, res, next) => {
+    //vérification des données 
     try {
         const token = req.headers.authorization.split(' ')[1]; // on récupère le token de la requête entrante
         const decodedToken = jwt.verify(token, 'RANDOM_TOKEN_SECRET'); // on le vérifie

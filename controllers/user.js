@@ -1,5 +1,8 @@
+//importation du package bcrypt pour hacher le mdp et jsonwebtoken pour générer les Tokens 
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+
+//importation de user.js
 const User = require('../models/User');
 
 
